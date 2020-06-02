@@ -1,8 +1,11 @@
 cc_library(
     name = "merlin_engine",
     srcs = glob(["src/*.cpp", "include/*.hpp"]),
-    hdrs = ["include/game.hpp"],
+    hdrs = ["include/game.hpp", "include/window.hpp"],
     include_prefix = "merlin",
     strip_include_prefix = "include",
+    linkopts = [
+        "-lSDL2",
+    ],
     visibility = ["//visibility:public"]
 )
