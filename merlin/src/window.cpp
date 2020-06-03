@@ -15,8 +15,13 @@ Merlin::Window::Window(std::string title, int screen_height, int screen_width) {
         SDL_WINDOW_SHOWN
     );
     this -> window = WindowPointer(window, SDL_DestroyWindow);
+    this -> surface = SurfacePointer(SDL_GetWindowSurface(this -> window.get()));
 }
 
 WindowPointer& Merlin::Window::get_window() {
     return this -> window;
+}
+
+SurfacePointer& Merlin::Window::get_surface() {
+    return this -> surface;
 }
