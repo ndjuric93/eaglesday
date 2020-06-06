@@ -13,11 +13,16 @@ namespace Merlin {
     class Window {
         public:
             Window(std::string title = "", int screen_height = 640, int screen_width = 480);
-            WindowPointer& get_window();
-            SurfacePointer& get_surface();
+            Window(const Window& window); // copy ctor;
+
+            Window& operator=(const Window& window);
+
+            ~Window();
+
+            const WindowPointer& get_raw_window() const;
+            const SurfacePointer& get_surface() const;
 
         private:
-            void window_destroyer(SDL_Window* w);
             WindowPointer window;
             SurfacePointer surface; 
     };

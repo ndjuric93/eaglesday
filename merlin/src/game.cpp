@@ -1,10 +1,18 @@
 #include "merlin/game.hpp"
 #include "merlin/window.hpp"
 
-Merlin::Game::Game(int width, int height) {
-    this -> window = Window("Eagle's Day", height, width);
-}
+namespace Merlin {
 
-int Merlin::Game::run() {
-    return 0;
+    Game::Game(int width, int height) {
+        this -> window = Window("Eagle's Day", height, width);
+    }
+
+    Game::~Game() {
+        SDL_Quit();
+    }
+
+    int Game::run() {
+        return 0;
+    }
+
 }

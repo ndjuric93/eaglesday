@@ -8,6 +8,8 @@ namespace Merlin {
     class Game {
         public:
             Game(int screen_width, int screen_height);
+            ~Game();
+            
             int run();
         private:
             Window window;
