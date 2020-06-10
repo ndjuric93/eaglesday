@@ -1,7 +1,9 @@
+#include <iostream>
 #include <memory>
 
 #include <SDL2/SDL.h>
 
+#include "merlin/image_bmp.hpp"
 #include "merlin/window.hpp"
 
 namespace Merlin {
@@ -34,6 +36,11 @@ namespace Merlin {
             *this = Window(window);
         }
         return *this;
+    }
+
+    void Window::add_image(const ImageBmp& image) {
+        SDL_BlitSurface(image.get_surface(), nullptr, this -> surface.get(), nullptr);
+        SDL_UpdateWindowSurface(this -> window.get());
     }
 
     const WindowPointer& Window::get_raw_window() const {
